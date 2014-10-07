@@ -1,14 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-  <title>Hacks</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hackstore</title>
 
+  <script type="text/javascript">
+
+  </script>
+  <style>
+
+      .nb2 {
+          font-weight: normal !important;
+          text-shadow: 2px 0px 0px gray;
+      }
+
+      a {
+          font-size: 1.2em !important;
+          color: black !important;
+      }
+
+      #s input:focus{
+          box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      }
+      #s input{
+          width: 179px !important;
+          font-size: 1.1em;
+      }
+
+  </style>
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootswatch.css"/>
+</head>
+
+<body style="padding-top: 0px !important">
+<div class="navbar navbar-default">
+  <div class="navbar-header navbar-right">
+
+    <ul class="nav navbar-nav">
+      <li style="padding-top: 13px">
+        <form class="form-search" method="get" id="s" action="/">
+          <div class="input-append">
+            <input type="text" class="input-medium search-query" name="s" placeholder="Search hacks" value="">
+            <button type="submit" class="add-on btn"><i class="icon-search"></i></button>
+          </div>
+        </form>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/user/index">User Management</a></li>
+          <li><a href="/site/index">Configurations</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Home</a></li>
+    </ul>
+
+    <div class="navbar-brand nb2" style="font-size: 1.9em;">Hackstore</div>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="/user/logout">logout
+        <i style="color: darkslateblue;">(<%= User.find(session[:user_id]).username rescue "admin" %>)</i></a></li>
+    </ul>
+
+  </div>
+</div>
+</div>
 <%= yield %>
 
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/bootstrap.js"></script>
+<script src="/javascripts/bootswatch.js"></script>
 </body>
 </html>
