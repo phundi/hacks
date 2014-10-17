@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'coderay', '1.1.0'
+gem 'rubocop', '0.26.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
